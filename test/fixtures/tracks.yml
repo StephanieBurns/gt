@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  s1: MyText
+  s2: MyText
+  s3: MyText
+  g1: MyText
+  g2: MyText
+  g3: MyText
+  g4: MyText
+  g5: MyText
+  g6: MyText
+
+two:
+  s1: MyText
+  s2: MyText
+  s3: MyText
+  g1: MyText
+  g2: MyText
+  g3: MyText
+  g4: MyText
+  g5: MyText
+  g6: MyText
