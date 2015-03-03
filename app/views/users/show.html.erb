@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>First name:</strong>
@@ -14,6 +14,12 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+
+ <div>
+  <%= f.fields_for :tracks do |builder| %>
+    <%= render "tracks/form", :f => builder %>
+  <% end %>
+  </div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

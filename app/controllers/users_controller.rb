@@ -1,10 +1,29 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :answers]
+  before_action :set_track, only: [:show, :edit, :update, :destroy] 
   # GET /users
   # GET /users.json
+  
+  def home
+  end
+
+
+
+  def answers
+    @users = User.all  
+    @tracks = @users.tracks
+
+  end
+
+
   def index
-    @users = User.all
+    # if current_user.role == "admin"
+    #   @tracks = Track.all
+    # else
+    #   @tracks = current_user.tracks
+    # end
+
+    @users = User.all  
   end
 
   # GET /users/1
@@ -15,6 +34,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    track = @user.tracks.build
   end
 
   # GET /users/1/edit
@@ -69,6 +89,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email)
+      params.require(:user).permit(:first_name, :last_name, :email, :answers_attributes => [:id, :s1, :s2, :s3, :g1, :g2, :g3, :g4, :g5, :g6])
     end
 end
